@@ -1,0 +1,64 @@
+# Main Cloudflare Workers Configuration
+# This is the primary wrangler configuration file
+
+name = "silverback-google"
+main = "src/index.js"
+compatibility_date = "2026-05-17"
+compatibility_flags = ["nodejs_compat"]
+
+# Enable observability and analytics
+[observability]
+enabled = true
+
+# Assets configuration
+# Uncomment when you have a build directory
+# [assets]
+# directory = "./dist"
+
+# Environment variables (set these in Cloudflare dashboard or via secrets)
+# [vars]
+# ENVIRONMENT = "production"
+
+# Routes for Silverback domain
+[[routes]]
+pattern = "silverback-google.com/*"
+zone_name = "silverback-google.com"
+
+# KV Namespaces (add as needed)
+# [[kv_namespaces]]
+# binding = "MY_KV"
+# id = "your-kv-namespace-id"
+
+# Durable Objects (add as needed)
+# [[durable_objects.bindings]]
+# name = "MY_DURABLE_OBJECT"
+# class_name = "MyDurableObject"
+
+# ============================================
+# ENVIRONMENT: Production
+# ============================================
+[env.production]
+name = "silverback-google-production"
+vars = { ENVIRONMENT = "production" }
+
+[[env.production.routes]]
+pattern = "silverback-google.com/*"
+zone_name = "silverback-google.com"
+
+# ============================================
+# ENVIRONMENT: Staging
+# ============================================
+[env.staging]
+name = "silverback-google-staging"
+vars = { ENVIRONMENT = "staging" }
+
+[[env.staging.routes]]
+pattern = "staging.silverback-google.com/*"
+zone_name = "silverback-google.com"
+
+# ============================================
+# ENVIRONMENT: Development
+# ============================================
+[env.development]
+name = "silverback-google-dev"
+vars = { ENVIRONMENT = "development" }

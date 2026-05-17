@@ -1,0 +1,16 @@
+# Local Development Environment Variables
+# Copy this file to .dev.vars and fill in your actual values
+# .dev.vars is used by Wrangler for local development
+
+# Example: API Keys (use wrangler secret for production)
+# API_KEY=your-api-key-here
+
+# Example: External API URLs
+# EXTERNAL_API_URL=https://api.example.com
+
+# Example: Feature flags
+# ENABLE_DEBUG=true
+# ENABLE_ANALYTICS=false
+
+# Example: Environment identifier
+# ENVIRONMENT=development

@@ -1,0 +1,32 @@
+{
+  "name": "silverback-cloudflare-workers",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers for Silverback and Chigbulaws websites",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "dev:chigbulaws": "wrangler dev --config wrangler.chigbulaws.toml",
+    "deploy": "wrangler deploy",
+    "deploy:chigbulaws": "wrangler deploy --config wrangler.chigbulaws.toml",
+    "deploy:production": "wrangler deploy --env production",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:chigbulaws:production": "wrangler deploy --config wrangler.chigbulaws.toml --env production",
+    "deploy:chigbulaws:staging": "wrangler deploy --config wrangler.chigbulaws.toml --env staging",
+    "tail": "wrangler tail",
+    "tail:chigbulaws": "wrangler tail --config wrangler.chigbulaws.toml",
+    "login": "wrangler login",
+    "whoami": "wrangler whoami"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "edge",
+    "serverless"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

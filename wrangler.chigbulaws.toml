@@ -1,0 +1,68 @@
+# Cloudflare Workers Configuration for Chigbulaws.com
+# Deploy with: wrangler deploy --config wrangler.chigbulaws.toml
+
+name = "chigbulaws-com"
+main = "src/index.js"
+compatibility_date = "2026-05-17"
+compatibility_flags = ["nodejs_compat"]
+
+# Enable observability and analytics
+[observability]
+enabled = true
+
+# Assets configuration
+# Uncomment when you have a build directory
+# [assets]
+# directory = "./dist"
+
+# Environment variables
+[vars]
+SITE_NAME = "Chigbulaws"
+ENVIRONMENT = "production"
+
+# Routes for Chigbulaws domain
+[[routes]]
+pattern = "chigbulaws.com/*"
+zone_name = "chigbulaws.com"
+
+[[routes]]
+pattern = "www.chigbulaws.com/*"
+zone_name = "chigbulaws.com"
+
+# KV Namespaces (add as needed)
+# [[kv_namespaces]]
+# binding = "CHIGBULAWS_KV"
+# id = "your-kv-namespace-id"
+
+# ============================================
+# ENVIRONMENT: Production
+# ============================================
+[env.production]
+name = "chigbulaws-com-production"
+vars = { SITE_NAME = "Chigbulaws", ENVIRONMENT = "production" }
+
+[[env.production.routes]]
+pattern = "chigbulaws.com/*"
+zone_name = "chigbulaws.com"
+
+[[env.production.routes]]
+pattern = "www.chigbulaws.com/*"
+zone_name = "chigbulaws.com"
+
+# ============================================
+# ENVIRONMENT: Staging
+# ============================================
+[env.staging]
+name = "chigbulaws-com-staging"
+vars = { SITE_NAME = "Chigbulaws", ENVIRONMENT = "staging" }
+
+[[env.staging.routes]]
+pattern = "staging.chigbulaws.com/*"
+zone_name = "chigbulaws.com"
+
+# ============================================
+# ENVIRONMENT: Development
+# ============================================
+[env.development]
+name = "chigbulaws-com-dev"
+vars = { SITE_NAME = "Chigbulaws", ENVIRONMENT = "development" }
